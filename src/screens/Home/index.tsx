@@ -11,17 +11,22 @@ export function Home() {
     const participants = ["Bernardo", "Mari", "Diego", "Biro", "Ano", "Marinelson", "Galho", "Simba", "Wick", "Jack", "Café"]
 
 
+    // Função para adicionar um participante a lista
+
     function handleParticipantAdd() {
-        if(participants.includes("Bernardo")){
-            return Alert.alert("Participante existe","Já existe um participante na lista com esse nome")
+        if (participants.includes("Bernardo")) {
+            return Alert.alert("Participante existe", "Já existe um participante na lista com esse nome")
         }
     }
+
+
+    // Função para remover um participante da lsita
 
     function handleParticipantRemove(name: string) {
         Alert.alert("Remover", `Deseja remover o participante ${name} ?`, [
             {
                 text: 'Sim',
-                onPress: ()=> Alert.alert("Deletado")
+                onPress: () => Alert.alert("Deletado")
             },
             {
                 text: 'Não',
@@ -54,6 +59,8 @@ export function Home() {
                 </TouchableOpacity>
             </View>
 
+            {/* Renderizar a lista de participantes com FlatList para poder usar scroll */}
+
             <FlatList
                 data={participants}
                 keyExtractor={item => item}
@@ -65,12 +72,34 @@ export function Home() {
                     />
                 )}
                 showsVerticalScrollIndicator={false}
-                ListEmptyComponent={()=>(
+                ListEmptyComponent={() => (
                     <Text style={styles.listEmptyText}>
                         Ninguem chegou no evento ainda? Adicione participantes a sua lista de presença.
                     </Text>
                 )}
             />
+
+
+
+            {/* Usando ScrollView */}
+
+            {/* Colocar aqui o codigo */}
+
+
+
+
+
+            {/* Outra forma de renderizar componente */}
+
+            {/* {
+                participants.map(participant => (
+                    <Participant
+                        key={participant}
+                        name={participant}
+                        onRemove={() => handleParticipantRemove(participant)}
+                    />
+                ))
+            } */}
 
 
 
